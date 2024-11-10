@@ -1,0 +1,65 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <h2 class="text-center mb-4">Register</h2>
+        <form (ngSubmit)="onSubmit(registerForm)" #registerForm="ngForm" novalidate>
+          <!-- Username -->
+          <div class="mb-3">
+            <label for="username" class="form-label">Username:</label>
+            <input type="text" id="username" class="form-control" 
+                   [(ngModel)]="username" name="username" required>
+            <div *ngIf="registerForm.submitted && !username" class="text-danger">
+              Username is required.
+            </div>
+          </div>
+          
+          <!-- Email -->
+          <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" id="email" class="form-control" 
+                   [(ngModel)]="email" name="email" required email
+                   placeholder="name@example.com">
+            <div *ngIf="registerForm.submitted && !email" class="text-danger">
+              Email is required.
+            </div>
+            <div *ngIf="registerForm.submitted && email && registerForm.controls['email']?.errors?.['email']" class="text-danger">
+              Please enter a valid email address.
+            </div>
+          </div>
+          
+          <!-- Mobile Number -->
+          <div class="mb-3">
+            <label for="mobilenumber" class="form-label">Mobile Number:</label>
+            <input type="text" id="mobilenumber" class="form-control" 
+                   [(ngModel)]="mobilenumber" name="mobilenumber" 
+                   required pattern="^[0-9]{10}$" maxlength="10" 
+                   (input)="onMobileNumberInput($event)" placeholder="0123456789">
+            <div *ngIf="registerForm.submitted && !mobilenumber" class="text-danger">
+              Mobile Number is required.
+            </div>
+            <div *ngIf="registerForm.submitted && mobilenumber && registerForm.controls['mobilenumber']?.errors?.['pattern']" class="text-danger">
+              Mobile Number must be 10 digits.
+            </div>
+          </div>
+          
+          <!-- Password -->
+          <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" id="password" class="form-control" 
+                   [(ngModel)]="password" name="password" required  minlength="6">
+            <div *ngIf="registerForm.submitted && !password" class="text-danger">
+              Password is required.
+            </div>
+            <div *ngIf="registerForm.submitted && password && registerForm.controls['password']?.errors?.['minlength']" class="text-danger">
+              Password must be at least 6 characters long.
+            </div>
+          </div>
+          <div *ngIf="registerError" class="text-danger mb-3">
+            {{registerErrorMessage}}
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

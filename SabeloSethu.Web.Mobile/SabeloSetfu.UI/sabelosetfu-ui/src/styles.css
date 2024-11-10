@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+/* Default Light Mode */
+body {
+    background-color: #f8f9fa;
+    color: #212529;
+  }
+  
+  .navbar-light .navbar-brand,
+  .navbar-light .nav-link,
+  .navbar-light .navbar-text {
+    color: #212529;
+  }
+  
+  /* Dark Mode */
+  body.dark-theme {
+    background-color: #121212;
+    color: #f8f9fa;
+  }
+  
+  body.dark-theme .navbar-dark .navbar-brand,
+  body.dark-theme .navbar-dark .nav-link,
+  body.dark-theme .navbar-dark .navbar-text {
+    color: #f8f9fa;
+  }
+  
+  body.dark-theme .dropdown-menu {
+    background-color: #333;
+  }
+  
+  body.dark-theme .dropdown-item {
+    color: #f8f9fa;
+  }
+  

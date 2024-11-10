@@ -1,0 +1,16 @@
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .navbar-dark .navbar-nav .nav-link:hover {
+    color: white;
+  }
+  
+  .navbar-dark .navbar-text {
+    color: white; /* Ensures the username is visible */
+  }
+
+  .dropdown-item:hover {
+    background-color: #021120; /* Darker gray for hover */
+    color: black; /* Ensure the text remains light */
+  }
